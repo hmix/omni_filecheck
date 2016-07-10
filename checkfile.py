@@ -6,8 +6,10 @@ from filechecker import FileChecker
 
 class CheckFile(object):
     """
-    Representation of an omniture check file, containig path, metadata and
-    the file information given for each file to check.
+    Representation of an omniture check file.
+
+    The information in the file contains filepath, metadata and the file
+    information given for each file to check.
     """
 
     def __init__(self, file_path, metadata=None, fileinfo=None):
@@ -17,13 +19,13 @@ class CheckFile(object):
         self.fileinfo = []
 
     def clean_checkfile(self):
-        """ Remove whitespace / empty lines """
+        """ Remove whitespace / empty lines. """
         file_handler = open(self.file_path)
         filtered = filter(lambda x: not re.match(r'^\s*$', x), file_handler)
         return filtered
 
     def set_metadata(self):
-        """ The first four lines of a omniture checkfile is metadata """
+        """ The first four lines of a omniture checkfile is metadata. """
         head = self.clean_checkfile()
         head = head[:4]
         for line in head:
@@ -32,6 +34,8 @@ class CheckFile(object):
 
     def set_fileinfo(self):
         """
+        Add fileInfo objects to instance.
+
         A fileinfo dataset consists of three lines of information.
         The first four lines are metadata and must be removed.
         """
@@ -56,7 +60,7 @@ if __name__ == "__main__":
     print TEST.metadata
     TEST.set_fileinfo()
     print "Fileinfo:"
-    # print test.fileinfo
+    # print TEST.fileinfo
     for f_info in TEST.fileinfo:
         print f_info.file_type
         print f_info.file_name

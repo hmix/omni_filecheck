@@ -4,7 +4,7 @@ import hashlib
 
 class FileChecker(object):
     """
-    Several fit tests comparing file information and files
+    Several fit tests comparing file information and files.
     """
 
     def __init__(self, info_path, info_checksum, info_size):
@@ -14,17 +14,17 @@ class FileChecker(object):
         self.info_size = info_size
 
     def test_file_present(self):
-        """ Check if file is present in filesystem """
+        """ Check if file is present in filesystem. """
         return os.path.isfile(self.info_path)
 
     def test_md5sum(self):
-        """ Check md5sum against given file information """
+        """ Check md5sum against given file information. """
         file_md5sum = hashlib.md5(open(self.info_path, 'rb').read()).hexdigest()
         given_md5sum = self.info_checksum
         return file_md5sum == given_md5sum
 
     def test_size(self):
-        """ Check if file size matches given file size """
+        """ Check if file size matches given file size. """
         file_size = os.path.getsize(self.info_path)
         given_size = int(self.info_size)
         return file_size == given_size
