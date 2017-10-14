@@ -90,3 +90,7 @@ ENV/
 
 # Testfiles
 data/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
