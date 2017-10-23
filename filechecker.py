@@ -2,6 +2,7 @@
 import os
 import hashlib
 
+
 class FileChecker(object):
     """
     Several fit tests comparing file information and files.
@@ -29,10 +30,11 @@ class FileChecker(object):
         given_size = int(self.info_size)
         return file_size == given_size
 
+
 if __name__ == "__main__":
     POSITIVE_TEST = \
-            FileChecker('data/omni_20160622-000000-lookup_data.tar.gz', \
-            '1b8307f057dbd01be01117f39ffead77', 478)
+        FileChecker('data/omni_20160622-000000-lookup_data.tar.gz',
+                    '1b8307f057dbd01be01117f39ffead77', 478)
     if POSITIVE_TEST.test_file_present():
         print "File present"
     else:
@@ -47,26 +49,25 @@ if __name__ == "__main__":
         print "Size not ok - this shouldn't have happened"
 
     FILE_NOT_PRESENT_TEST = \
-            FileChecker('data/xxomni_20160622-000000-lookup_data.tar.gz', \
-            '1b8307f057dbd01be01117f39ffead77', 478)
+        FileChecker('data/xxomni_20160622-000000-lookup_data.tar.gz',
+                    '1b8307f057dbd01be01117f39ffead77', 478)
     if FILE_NOT_PRESENT_TEST.test_file_present():
         print "File present - this should not have happened"
     else:
         print "File not present - this is ok in this test"
 
     CHECKSUM_NOT_OK_TEST = \
-            FileChecker('data/omni_20160622-000000-lookup_data.tar.gz', \
-            '1b8307f057dbd01be01117f39ffead78', 478)
+        FileChecker('data/omni_20160622-000000-lookup_data.tar.gz',
+                    '1b8307f057dbd01be01117f39ffead78', 478)
     if CHECKSUM_NOT_OK_TEST.test_md5sum():
         print "Checksum ok - this should not have happened"
     else:
         print "Checksum not ok - this is ok in this test"
 
     SIZE_NOT_OK_TEST = \
-            FileChecker('data/omni_20160622-000000-lookup_data.tar.gz', \
-            '1b8307f057dbd01be01117f39ffead77', 479)
+        FileChecker('data/omni_20160622-000000-lookup_data.tar.gz',
+                    '1b8307f057dbd01be01117f39ffead77', 479)
     if SIZE_NOT_OK_TEST.test_size():
         print "File size ok - this shouldn't have happened"
     else:
         print "Size not ok - this is ok in this test"
-
