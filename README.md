@@ -34,6 +34,6 @@ By now these checks are implemented:
 ## TODO
 
 - Verify record count (full and by file)
-- Correct parsing of lookup- and data files
+- Correct parsing of lookup- and data file info
 - Logging
 - Testing
