@@ -4,6 +4,7 @@ import re
 from fileinfo import FileInfo
 from filechecker import FileChecker
 
+
 class CheckFile(object):
     """
     Representation of an omniture check file.
@@ -67,8 +68,8 @@ if __name__ == "__main__":
         print f_info.file_checksum
         print f_info.file_size
 
-        fc = FileChecker('data/' + f_info.file_name, f_info.file_checksum, \
-                str(f_info.file_size))
+        fc = FileChecker('data/' + f_info.file_name, f_info.file_checksum,
+                         str(f_info.file_size))
         if fc.test_file_present():
             print "File present - ok"
         else:
@@ -81,4 +82,3 @@ if __name__ == "__main__":
             print "Size ok"
         else:
             print "Size not ok"
-
