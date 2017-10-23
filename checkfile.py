@@ -55,7 +55,7 @@ class CheckFile(object):
 
 
 if __name__ == "__main__":
-    TEST = CheckFile('data/omni_file_checkfile.txt')
+    TEST = CheckFile('data/omni_20160622-000000.txt')
     TEST.set_metadata()
     print "Header:"
     print TEST.metadata
